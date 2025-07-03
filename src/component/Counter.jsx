@@ -44,6 +44,13 @@ const Counter = () => {
     setDraggingOffset({ x: deltaX, y: deltaY });
   };
 
+  const handleMouseUp = () => {
+    handleGestureEnd();
+
+    window.addEventListener("mouseup", handleMouseUp);
+    windwow.addEventListener("mousemove", handleMouseMove);
+  };
+
   //Main Count Functions
   const handleIncrease = () => {
     setCount(count + 1);
