@@ -47,8 +47,8 @@ const Counter = () => {
   const handleMouseUp = () => {
     handleGestureEnd();
 
-    window.removeEventListener("mouseup", handleMouseUp);
-    windwow.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("mousemove", handleMouseMove);
+    windwow.removeEventListener("mouseup", handleMouseUp);
   };
 
   //Unified Gesture End Function
