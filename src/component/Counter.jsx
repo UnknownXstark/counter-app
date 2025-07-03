@@ -52,7 +52,15 @@ const Counter = () => {
   };
 
   const handleGestureEnd = () => {
+    const { x, y } = dragOffset;
 
+    if (Math.abs(x) > Math.abs(y)) {
+      if (x > 30) {
+        handleIncrease();
+      } else if (x < -30) {
+        handleDecrease();
+      }
+    }
   };
 
   //Main Count Functions
