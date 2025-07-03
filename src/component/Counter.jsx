@@ -60,7 +60,13 @@ const Counter = () => {
       } else if (x < -30) {
         handleDecrease();
       }
+    } else {
+      if (y > 30) {
+        handleReset();
+      }
     }
+    setIsDragging(false);
+    setDraggingOffset({ x: 0, y: 0 });
   };
 
   //Main Count Functions
