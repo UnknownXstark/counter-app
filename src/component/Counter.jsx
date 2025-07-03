@@ -25,6 +25,12 @@ const Counter = () => {
     setDraggingOffset({ x: deltaX, y: deltaY });
   };
 
+  const handleTouchEnd = () => {
+    handleGestureEnd();
+  };
+
+  //Mouse Handlers
+
   //Main Count Functions
   const handleIncrease = () => {
     setCount(count + 1);
