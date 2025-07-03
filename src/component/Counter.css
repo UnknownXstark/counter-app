@@ -1,0 +1,11 @@
+.counter {
+  height: 80px;
+  width: 180px;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 40px;
+  padding: 0 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
