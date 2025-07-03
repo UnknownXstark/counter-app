@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "./Counter.css";
 import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 
 const Counter = () => {
   const [count, setCount] = useState(0);
+  const [animate, setAnimate] = useState(false);
 
   const handleIncrease = () => {
     setCount(count + 1);
