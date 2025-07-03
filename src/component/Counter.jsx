@@ -5,7 +5,7 @@ import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 const Counter = () => {
   const [count, setCount] = useState(0);
   const [animate, setAnimate] = useState(false);
-  const [draggingOffset, setDraggingOffset] = useState({ x: 0, y: 0 });
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
 
   const dragStart = useRef({ x: 0, y: 0 });
@@ -22,7 +22,7 @@ const Counter = () => {
     const touch = e.touches[0];
     const deltaX = touch.clientX - touchStart.current.x;
     const deltaY = touch.clientY - touchStart.current.y;
-    setDraggingOffset({ x: deltaX, y: deltaY });
+    setDragOffset({ x: deltaX, y: deltaY });
   };
 
   const handleTouchEnd = () => {
@@ -41,7 +41,7 @@ const Counter = () => {
   const handleMouseMove = (e) => {
     const deltaX = e.clientX - dragStart.current.x;
     const deltaY = e.clientY - dragStart.current.y;
-    setDraggingOffset({ x: deltaX, y: deltaY });
+    setDragOffset({ x: deltaX, y: deltaY });
   };
 
   const handleMouseUp = () => {
@@ -67,7 +67,7 @@ const Counter = () => {
       }
     }
     setIsDragging(false);
-    setDraggingOffset({ x: 0, y: 0 });
+    setDragOffset({ x: 0, y: 0 });
   };
 
   //Main Count Functions
