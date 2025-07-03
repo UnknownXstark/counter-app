@@ -70,6 +70,9 @@ const Counter = () => {
   const handleDecrease = () => {
     setCount(count - 1);
   };
+  const handleReset = () => {
+    setCount(0);
+  };
 
   return (
     <div className="counter">
