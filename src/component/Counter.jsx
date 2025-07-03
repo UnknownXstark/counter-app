@@ -34,11 +34,15 @@ const Counter = () => {
     dragStart.current = { x: e.clientX, y: e.clientY };
     setIsDragging(true);
 
-    window.addEventListener ("mousedown" , handleMouseDown);
-    window.addEventListener ("mousemove" , handleMouseMove);
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mousemove", handleMouseMove);
   };
 
-  
+  const handleMouseMove = (e) => {
+    const deltaX = e.clientX - dragStart.current.x;
+    const deltaY = e.clientY - dragStart.current.y;
+    setDraggingOffset(true);
+  };
 
   //Main Count Functions
   const handleIncrease = () => {
