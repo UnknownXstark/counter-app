@@ -41,7 +41,7 @@ const Counter = () => {
   const handleMouseMove = (e) => {
     const deltaX = e.clientX - dragStart.current.x;
     const deltaY = e.clientY - dragStart.current.y;
-    setDraggingOffset(true);
+    setDraggingOffset({ x: deltaX, y: deltaY });
   };
 
   //Main Count Functions
