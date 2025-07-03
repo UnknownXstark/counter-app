@@ -11,6 +11,14 @@ const Counter = () => {
   const dragStart = useRef({ x: 0, y: 0 });
   const touchStart = useRef({ x: 0, y: 0 });
 
+  //Touch Handlers
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    touchStart.current = { x: touch.clientX, y: touch.clientY };
+    setIsDragging(true);
+  };
+
+  //Main Count Functions
   const handleIncrease = () => {
     setCount(count + 1);
   };
