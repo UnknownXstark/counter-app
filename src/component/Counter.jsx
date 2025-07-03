@@ -34,8 +34,8 @@ const Counter = () => {
     dragStart.current = { x: e.clientX, y: e.clientY };
     setIsDragging(true);
 
-    window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
   };
 
   const handleMouseMove = (e) => {
