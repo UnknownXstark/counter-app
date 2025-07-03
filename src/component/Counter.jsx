@@ -51,6 +51,7 @@ const Counter = () => {
     windwow.removeEventListener("mousemove", handleMouseMove);
   };
 
+  //Unified Gesture End Function
   const handleGestureEnd = () => {
     const { x, y } = dragOffset;
 
