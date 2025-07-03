@@ -87,7 +87,7 @@ const Counter = () => {
         <CgMathMinus />
       </button>
       <div
-        className="counter-box"
+        className={`counter-box ${isDragging ? "dragging" : ""}`}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
