@@ -18,6 +18,13 @@ const Counter = () => {
     setIsDragging(true);
   };
 
+  const handleTouchMove = (e) => {
+    const touch = e.touches[0];
+    const deltaX = touch.clientX - touchStart.current.x;
+    const deltaY = touch.clientY - touchStart.current.y;
+    setDraggingOffset({ x: deltaX, y: deltaY });
+  };
+
   //Main Count Functions
   const handleIncrease = () => {
     setCount(count + 1);
