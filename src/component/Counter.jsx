@@ -93,7 +93,12 @@ const Counter = () => {
         onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
       >
-        <h2>{count}</h2>
+        <h2
+          className={`count-display ${animate ? "bounce-slide" : ""}`}
+          onAnimationEnd={() => setAnimate(false)}
+        >
+          {count}
+        </h2>
       </div>
       <button onClick={handleIncrease}>
         <CgMathPlus />
