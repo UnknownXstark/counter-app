@@ -5,6 +5,8 @@ import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 const Counter = () => {
   const [count, setCount] = useState(0);
   const [animate, setAnimate] = useState(false);
+  const [draggingOffset, setDraggingOffset] = useState({ x: 0, y: 0 });
+  
 
   const handleIncrease = () => {
     setCount(count + 1);
