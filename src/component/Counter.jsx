@@ -86,7 +86,13 @@ const Counter = () => {
       <button onClick={handleDecrease}>
         <CgMathMinus />
       </button>
-      <div className="counter-box">
+      <div
+        className="counter-box"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+      >
         <h2>{count}</h2>
       </div>
       <button onClick={handleIncrease}>
