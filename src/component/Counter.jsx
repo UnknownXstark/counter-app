@@ -47,8 +47,12 @@ const Counter = () => {
   const handleMouseUp = () => {
     handleGestureEnd();
 
-    window.addEventListener("mouseup", handleMouseUp);
-    windwow.addEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("mouseup", handleMouseUp);
+    windwow.removeEventListener("mousemove", handleMouseMove);
+  };
+
+  const handleGestureEnd = () => {
+
   };
 
   //Main Count Functions
