@@ -6,6 +6,8 @@ const Counter = () => {
   const [count, setCount] = useState(0);
   const [animate, setAnimate] = useState(false);
   const [draggingOffset, setDraggingOffset] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+
   
 
   const handleIncrease = () => {
