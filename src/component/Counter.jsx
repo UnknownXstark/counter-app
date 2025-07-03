@@ -8,7 +8,8 @@ const Counter = () => {
   const [draggingOffset, setDraggingOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
 
-  
+  const dragStart = useRef({ x: 0, y: 0 });
+  const touchStart = useRef({ x: 0, y: 0 });
 
   const handleIncrease = () => {
     setCount(count + 1);
