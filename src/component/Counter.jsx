@@ -30,6 +30,10 @@ const Counter = () => {
   };
 
   //Mouse Handlers
+  const handleMouseDown = (e) => {
+    dragStart.current = { x: e.clientX, y: e.clientY };
+    setIsDragging(true);
+  };
 
   //Main Count Functions
   const handleIncrease = () => {
