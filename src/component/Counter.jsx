@@ -33,7 +33,12 @@ const Counter = () => {
   const handleMouseDown = (e) => {
     dragStart.current = { x: e.clientX, y: e.clientY };
     setIsDragging(true);
+
+    window.addEventListener ("mousedown" , handleMouseDown);
+    window.addEventListener ("mousemove" , handleMouseMove);
   };
+
+  
 
   //Main Count Functions
   const handleIncrease = () => {
