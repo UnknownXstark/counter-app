@@ -60,6 +60,8 @@ const Counter = () => {
   //Unified Gesture End Function
   const handleGestureEnd = () => {
     const { x, y } = dragOffset;
+    const swipeThresholdX = 50;
+    const swipeThresholdY = 50;
 
     if (Math.abs(x) > Math.abs(y)) {
       if (x > 70) {
