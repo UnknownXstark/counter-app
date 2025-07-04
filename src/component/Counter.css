@@ -21,9 +21,10 @@
   user-select: none;
   touch-action: none;
   will-change: transform;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .counter-box.dragging {
-  /* box-shadow: 0 0 10px 4px rgba(0, 255, 255, 0.6); */
+  box-shadow: 0 0 10px 4px rgba(34, 109, 99, 0.6);
 }
 .counter h2 {
   cursor: pointer;

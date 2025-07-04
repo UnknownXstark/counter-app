@@ -92,6 +92,7 @@ const Counter = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
+        onClick={handleReset}
         style={{
           transform: `translate(${dragOffset.x}px, ${dragOffset.y}px) rotate(${
             dragOffset.x * 0.2
