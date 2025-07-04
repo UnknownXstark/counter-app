@@ -10,7 +10,6 @@ const Counter = () => {
 
   const dragStart = useRef({ x: 0, y: 0 });
   const touchStart = useRef({ x: 0, y: 0 });
-  const lastPosition = useRef({ x: 0, y: 0 });
 
   //Touch Handlers
   const handleTouchStart = (e) => {
@@ -20,6 +19,7 @@ const Counter = () => {
   };
 
   const handleTouchMove = (e) => {
+    if (!isDragging) return;
     const touch = e.touches[0];
     const maxX = 60;
     const maxY = 60;
@@ -29,7 +29,6 @@ const Counter = () => {
     const limitedY = Math.max(Math.min(deltaY, maxY), -maxY);
     lastPosition.current = { x: e.clientX, y: e.clientY };
     setDragOffset({ x: limitedX, y: limitedY });
-    console.log("deltaY", deltaY);
   };
 
   const handleTouchEnd = () => {
@@ -40,12 +39,10 @@ const Counter = () => {
   const handleMouseDown = (e) => {
     dragStart.current = { x: e.clientX, y: e.clientY };
     setIsDragging(true);
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
   };
 
   const handleMouseMove = (e) => {
+    if (!isDragging) return;
     const maxX = 60;
     const maxY = 60;
     const deltaX = e.clientX - dragStart.current.x;
