@@ -106,12 +106,11 @@ const Counter = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
-        // onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
         style={{
           transform: `translate(${dragOffset.x}px, ${dragOffset.y}px) rotate(${
             dragOffset.x * 0.2
           }deg)`,
+          transition: isDragging ? "none" : "transform 0.2s ease-out",
         }}
       >
         <h2
