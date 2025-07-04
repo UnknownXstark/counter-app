@@ -8,6 +8,7 @@
   border-radius: 40px;
   padding: 0 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .counter-box {
   height: 50px;
