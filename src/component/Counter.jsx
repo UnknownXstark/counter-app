@@ -82,17 +82,21 @@ const Counter = () => {
 
   //Main Count Functions
   const handleIncrease = () => {
-    setCount(count + 1);
+    setCount((prev) => prev + 1);
   };
   const handleDecrease = () => {
-    setCount(count - 1);
+    setCount((prev) => prev - 1);
   };
   const handleReset = () => {
     setCount(0);
   };
 
   return (
-    <div className="counter">
+    <div
+      className="counter"
+      onMouseMove={isDragging ? handleMouseMove : undefined}
+      onMouseUp={isDragging ? handleMouseUp : undefined}
+    >
       <button onClick={handleDecrease} aria-label="decrease">
         <CgMathMinus />
       </button>
