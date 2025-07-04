@@ -55,9 +55,6 @@ const Counter = () => {
 
   const handleMouseUp = () => {
     handleGestureEnd();
-
-    window.removeEventListener("mousemove", handleMouseMove);
-    window.removeEventListener("mouseup", handleMouseUp);
   };
 
   //Unified Gesture End Function
