@@ -66,6 +66,11 @@ const Counter = () => {
       dragStart.current.x,
       dragStart.current.y
     );
+    if (elementUnderCursor?.closest("button")?.innerText === "+") {
+      handleIncrease();
+    } else if (elementUnderCursor?.closest("button")?.innerText === "-") {
+      handleDecrease();
+    }
     const { x, y } = dragOffset;
 
     if (Math.abs(x) > Math.abs(y)) {
