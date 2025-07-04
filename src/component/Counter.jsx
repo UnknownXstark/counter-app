@@ -63,19 +63,19 @@ const Counter = () => {
     const swipeThresholdX = 50;
     const swipeThresholdY = 50;
 
-    if (Math.abs(x) > Math.abs(y)) {
+    if (Math.abs(x) > Math.abs(y) && Math.abs(x) > swipeThresholdX) {
       if (x > 70) {
         handleIncrease();
-      } else if (x < -70) {
+        setAnimate(true);
+      } else {
         handleDecrease();
+        setAnimate(true);
       }
-    } else {
-      if (y > 30) {
-        console.log("swipe down triggered reset");
-
-        handleReset();
-      }
+    } else if (Math.abs(y) > swipeThresholdY && y > 0) {
+      handleReset();
+      setAnimate(true);
     }
+
     setIsDragging(false);
     setDragOffset({ x: 0, y: 0 });
   };
