@@ -71,9 +71,9 @@ const Counter = () => {
     );
 
     const button = elementUnderCursor?.closest("button");
-    if (elementUnderCursor?.closest("button")?.innerText === "+") {
+    if (button?.getAttribute("aria-label") === "increase") {
       handleIncrease();
-    } else if (elementUnderCursor?.closest("button")?.innerText === "-") {
+    } else if (button?.getAttribute("aria-label") === "decrease") {
       handleDecrease();
     }
     const { x, y } = dragOffset;
