@@ -36,7 +36,6 @@ const Counter = () => {
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseup", handleMouseUp);
-    window.addEventListener("reset", handleReset);
   };
 
   const handleMouseMove = (e) => {
@@ -49,8 +48,7 @@ const Counter = () => {
     handleGestureEnd();
 
     window.removeEventListener("mousemove", handleMouseMove);
-    windwow.removeEventListener("mouseup", handleMouseUp);
-    window.removeEventListener("reset", handleReset);
+    window.removeEventListener("mouseup", handleMouseUp);
   };
 
   //Unified Gesture End Function
@@ -64,7 +62,8 @@ const Counter = () => {
         handleDecrease();
       }
     } else {
-      if (y > 30) {
+      if (y > 10) {
+        console.log("swipe down");
         handleReset();
       }
     }
@@ -94,6 +93,7 @@ const Counter = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
         onClick={handleReset}
         style={{
           transform: `translate(${dragOffset.x}px, ${dragOffset.y}px) rotate(${
