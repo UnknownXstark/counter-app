@@ -62,7 +62,7 @@ const Counter = () => {
     const swipeThresholdY = 50;
 
     if (Math.abs(x) > Math.abs(y) && Math.abs(x) > swipeThresholdX) {
-      if (x > 70) {
+      if (x > 0) {
         handleIncrease();
         setAnimate(true);
       } else {
