@@ -36,6 +36,7 @@ const Counter = () => {
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("reset", handleReset);
   };
 
   const handleMouseMove = (e) => {
@@ -49,6 +50,7 @@ const Counter = () => {
 
     window.removeEventListener("mousemove", handleMouseMove);
     windwow.removeEventListener("mouseup", handleMouseUp);
+    window.removeEventListener("reset", handleReset);
   };
 
   //Unified Gesture End Function
