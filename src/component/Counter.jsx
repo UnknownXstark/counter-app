@@ -10,6 +10,7 @@ const Counter = () => {
 
   const dragStart = useRef({ x: 0, y: 0 });
   const touchStart = useRef({ x: 0, y: 0 });
+  const lastPosition = useRef({ x: 0, y: 0 });
 
   //Touch Handlers
   const handleTouchStart = (e) => {
@@ -26,6 +27,7 @@ const Counter = () => {
     const deltaY = touch.clientY - touchStart.current.y;
     const limitedX = Math.max(Math.min(deltaX, maxX), -maxX);
     const limitedY = Math.max(Math.min(deltaY, maxY), -maxY);
+    lastPosition.current = { x: e.clientX, y: e.clientY };
     setDragOffset({ x: limitedX, y: limitedY });
     console.log("deltaY", deltaY);
   };
@@ -50,6 +52,7 @@ const Counter = () => {
     const deltaY = e.clientY - dragStart.current.y;
     const limitedX = Math.max(Math.min(deltaX, maxX), -maxX);
     const limitedY = Math.max(Math.min(deltaY, maxY), -maxY);
+    lastPosition.current = { x: e.clientX, y: e.clientY };
     setDragOffset({ x: limitedX, y: limitedY });
   };
 
@@ -63,9 +66,11 @@ const Counter = () => {
   //Unified Gesture End Function
   const handleGestureEnd = () => {
     const elementUnderCursor = document.elementFromPoint(
-      dragStart.current.x,
-      dragStart.current.y
+      lastPosition.current.x,
+      lastPosition.current.y
     );
+
+    const button = elementUnderCursor?.closest("button");
     if (elementUnderCursor?.closest("button")?.innerText === "+") {
       handleIncrease();
     } else if (elementUnderCursor?.closest("button")?.innerText === "-") {
@@ -103,7 +108,7 @@ const Counter = () => {
 
   return (
     <div className="counter">
-      <button onClick={handleDecrease}>
+      <button onClick={handleDecrease} aria-label="decrease">
         <CgMathMinus />
       </button>
       <div
@@ -127,7 +132,7 @@ const Counter = () => {
           {count}
         </h2>
       </div>
-      <button onClick={handleIncrease}>
+      <button onClick={handleIncrease} aria-label="increase">
         <CgMathPlus />
       </button>
     </div>
