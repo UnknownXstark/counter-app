@@ -21,7 +21,7 @@ const Counter = () => {
   const handleTouchMove = (e) => {
     const touch = e.touches[0];
     const maxX = 60;
-    const maxY = 10;
+    const maxY = 60;
     const deltaX = touch.clientX - touchStart.current.x;
     const deltaY = touch.clientY - touchStart.current.y;
     const limitedX = Math.max(Math.min(deltaX, maxX), -maxX);
@@ -62,6 +62,10 @@ const Counter = () => {
 
   //Unified Gesture End Function
   const handleGestureEnd = () => {
+    const elementUnderCursor = document.elementFromPoint(
+      dragStart.current.x,
+      dragStart.current.y
+    );
     const { x, y } = dragOffset;
 
     if (Math.abs(x) > Math.abs(y)) {
@@ -71,9 +75,9 @@ const Counter = () => {
         handleDecrease();
       }
     } else {
-      if (y > 30) {   
+      if (y > 30) {
         console.log("swipe down triggered reset");
-         
+
         handleReset();
       }
     }
@@ -103,7 +107,7 @@ const Counter = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
+        // onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         style={{
           transform: `translate(${dragOffset.x}px, ${dragOffset.y}px) rotate(${
