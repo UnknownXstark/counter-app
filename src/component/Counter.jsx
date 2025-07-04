@@ -20,9 +20,11 @@ const Counter = () => {
 
   const handleTouchMove = (e) => {
     const touch = e.touches[0];
+    const maxX = 40;
     const deltaX = touch.clientX - touchStart.current.x;
     const deltaY = touch.clientY - touchStart.current.y;
-    setDragOffset({ x: deltaX, y: deltaY });
+    const limitedX = Math.max(Math.min(deltaX, maxX) - maxX);
+    setDragOffset({ x: limitedX, y: deltaY });
   };
 
   const handleTouchEnd = () => {
@@ -39,9 +41,11 @@ const Counter = () => {
   };
 
   const handleMouseMove = (e) => {
+    const maxX = 40;
     const deltaX = e.clientX - dragStart.current.x;
     const deltaY = e.clientY - dragStart.current.y;
-    setDragOffset({ x: deltaX, y: deltaY });
+    const limitedX = Math.max(Math.min(deltaX, maxX), -maxX);
+    setDragOffset({ x: limitedX, y: deltaY });
   };
 
   const handleMouseUp = () => {
@@ -93,8 +97,6 @@ const Counter = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onClick={handleReset}
         style={{
           transform: `translate(${dragOffset.x}px, ${dragOffset.y}px) rotate(${
             dragOffset.x * 0.2
