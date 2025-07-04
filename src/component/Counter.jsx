@@ -59,17 +59,6 @@ const Counter = () => {
 
   //Unified Gesture End Function
   const handleGestureEnd = () => {
-    const elementUnderCursor = document.elementFromPoint(
-      lastPosition.current.x,
-      lastPosition.current.y
-    );
-
-    const button = elementUnderCursor?.closest("button");
-    if (button?.getAttribute("aria-label") === "increase") {
-      handleIncrease();
-    } else if (button?.getAttribute("aria-label") === "decrease") {
-      handleDecrease();
-    }
     const { x, y } = dragOffset;
 
     if (Math.abs(x) > Math.abs(y)) {
