@@ -27,7 +27,6 @@ const Counter = () => {
     const deltaY = touch.clientY - touchStart.current.y;
     const limitedX = Math.max(Math.min(deltaX, maxX), -maxX);
     const limitedY = Math.max(Math.min(deltaY, maxY), -maxY);
-    lastPosition.current = { x: e.clientX, y: e.clientY };
     setDragOffset({ x: limitedX, y: limitedY });
   };
 
@@ -49,7 +48,6 @@ const Counter = () => {
     const deltaY = e.clientY - dragStart.current.y;
     const limitedX = Math.max(Math.min(deltaX, maxX), -maxX);
     const limitedY = Math.max(Math.min(deltaY, maxY), -maxY);
-    lastPosition.current = { x: e.clientX, y: e.clientY };
     setDragOffset({ x: limitedX, y: limitedY });
   };
 
