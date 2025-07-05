@@ -103,7 +103,7 @@ const Counter = () => {
       onMouseMove={isDragging ? handleMouseMove : undefined}
       onMouseUp={isDragging ? handleMouseUp : undefined}
       style={{
-        transform: `translateX(${containerTranslateX}px)`,
+        transform: `translate(${containerTranslateX}px), ${containerTranslateY}px)`,
         transition: isDragging
           ? "transform 0.1s ease-out"
           : "transform 0.3s ease-out",
