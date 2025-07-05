@@ -89,6 +89,9 @@ const Counter = () => {
     setCount(0);
   };
 
+  
+  const boxScale = Math.abs(dragOffset.x) >= 55 || Math.abs(dragOffset.y) >= 55 ? 0.95 : 1;
+
   return (
     <div
       className="counter"
