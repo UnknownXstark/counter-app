@@ -100,6 +100,12 @@ const Counter = () => {
       className="counter"
       onMouseMove={isDragging ? handleMouseMove : undefined}
       onMouseUp={isDragging ? handleMouseUp : undefined}
+      style={{
+        transform: `translateX(${containerTranslateX}px)`,
+        transition: isDragging
+          ? "transform 0.1s ease-out"
+          : "transform 0.3s ease-out",
+      }}
     >
       <button onClick={handleDecrease} aria-label="decrease">
         <CgMathMinus />
