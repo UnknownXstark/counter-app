@@ -89,8 +89,11 @@ const Counter = () => {
     setCount(0);
   };
 
-  
-  const boxScale = Math.abs(dragOffset.x) >= 55 || Math.abs(dragOffset.y) >= 55 ? 0.95 : 1;
+  const containerTranslateX =
+    Math.abs(dragOffset.x) > 30 ? (dragOffset.x / 60) * 10 : 0;
+
+  const boxScale =
+    Math.abs(dragOffset.x) >= 55 || Math.abs(dragOffset.y) >= 55 ? 0.95 : 1;
 
   return (
     <div
