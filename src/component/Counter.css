@@ -8,8 +8,41 @@
   border-radius: 40px;
   padding: 0 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+.counter-box {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  touch-action: none;
+  will-change: transform;
+}
+.counter-box.dragging {
+  box-shadow: 0 0 10px 4px rgba(0, 255, 255, 0.6);
+}
+
+.counter {
+  height: 80px;
+  width: 180px;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 40px;
+  padding: 0 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: relative; /* Support transform for tug effect */
+  user-select: none; /* Prevent text selection during drag */
+  margin: 0 auto; /* Center the container */
+  will-change: transform; /* Optimize transform performance */
+}
+
 .counter-box {
   height: 50px;
   width: 50px;
@@ -24,13 +57,9 @@
   will-change: transform;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 .counter-box.dragging {
   box-shadow: 0 0 10px 4px rgba(34, 109, 99, 0.6);
-}
-.counter h2 {
-  cursor: pointer;
-  transition: color 0.2s ease;
-  /* transform: translateX(10,10); */
 }
 
 .counter button {
@@ -43,7 +72,6 @@
 
 .counter button:active {
   transform: scale(0.9);
-  /* transition: transform 0.1s; */
 }
 
 .count-display {
